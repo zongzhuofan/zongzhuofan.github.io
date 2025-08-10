@@ -7,7 +7,91 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
-	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
+  
+  <style>
+    /* Additional styling for better appearance */
+    .section-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    
+    .highlight {
+      color: #667eea;
+      font-weight: 600;
+    }
+    
+    .paper-section {
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .paper-section h3 {
+      color: #333;
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .paper-section h3:hover {
+      color: #667eea;
+    }
+    
+    .paper-section h3::after {
+      content: '▼';
+      font-size: 0.8em;
+      transition: transform 0.3s ease;
+    }
+    
+    .paper-section.collapsed h3::after {
+      transform: rotate(-90deg);
+    }
+    
+    .paper-section.collapsed .paper-content {
+      display: none;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+    
+    a {
+      color: #667eea;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    a:hover {
+      color: #764ba2;
+      text-decoration: underline;
+    }
+    
+    .job-market-text {
+      color: #764ba2;
+      font-weight: 1000;
+      margin-top: 15px;
+    }
+    
+    .click-hint {
+      font-size: 0.9em;
+      color: #888;
+      font-style: italic;
+      margin-top: -10px;
+      margin-bottom: 15px;
+    }
+  </style>
 </head>
 
 <body>
@@ -20,15 +104,17 @@
               <p style="text-align:center">
                 <name>Zhuofan Zong</name>
               <p>
-                I am a second-year Ph.D. student from <a href="https://mmlab.ie.cuhk.edu.hk/">MMLab</a>, The Chinese University of Hong Kong. I'm supervised by Prof. <a href="https://www.ee.cuhk.edu.hk/~hsli/">Hongsheng Li</a>. I received both my Bachelor's and Master's degrees from <a href="https://ev.buaa.edu.cn/">Beihang University</a>, supervised by Prof. <a href="https://scholar.google.com/citations?user=zQqJW3gAAAAJ&hl=en">Biao Leng</a>.
+                I am a third-year Ph.D. student from <a href="https://mmlab.ie.cuhk.edu.hk/">MMLab</a>, The Chinese University of Hong Kong. I'm supervised by Prof. <a href="https://www.ee.cuhk.edu.hk/~hsli/">Hongsheng Li</a>. I received both my Bachelor's and Master's degrees from <a href="https://ev.buaa.edu.cn/">Beihang University</a>, supervised by Prof. <a href="https://scholar.google.com/citations?user=zQqJW3gAAAAJ&hl=en">Biao Leng</a>.
               </p>
               <p> 
                 I worked as a research intern in the Base Model Department at SenseTime Research, working closely with <a href="https://songguanglu.github.io/">Guanglu Song</a> and <a href="https://liuyu.us/">Yu Liu</a>. During my internship at SenseTime, I was a core member of the founding team for frontline R&D projects, including the large vision foundation model, the multimodal interactive model, and the AIGC product <a href="https://miaohua.sensetime.com/">SenseMirage</a>.
               </p>
-              <p>
-              Feel free to reach out for research discussions, collaborations or just to have a chat!
+              
+              <p class="job-market-text">
+                📢 I will be entering the job market in 2026, seeking Research Scientist positions in GenAI at industry labs. Please feel free to reach out if you have opportunities!
               </p>
-              <p style="text-align:center">
+              
+              <p style="text-align:center; margin-top:20px;">
                 <a href="mailto:zongzhuofan@gmail.com">Email</a> &nbsp/&nbsp
                 <a href="https://scholar.google.com/citations?user=vls0YhoAAAAJ">Google Scholar</a> &nbsp/&nbsp
                 <a href="https://github.com/TempleX98/">Github</a> &nbsp/&nbsp
@@ -37,26 +123,34 @@
               </p>
             </td>
             <td style="padding:2.5%;width:40%;max-width:40%">
-              <a href="images/zongzhuofan.png"><img style="width:100%;max-width:100%" alt="profile photo" src="images/zongzhuofan.png" class="hoverZoomLink"></a>
+              <a href="images/zongzhuofan.png"><img style="width:100%;max-width:100%;border-radius:10px;box-shadow: 0 4px 6px rgba(0,0,0,0.1);" alt="profile photo" src="images/zongzhuofan.png" class="hoverZoomLink"></a>
             </td>
           </tr>
         </tbody></table>
+        
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
             <td style="padding:20px;width:100%;vertical-align:middle">
-              <heading>Research</heading>
+              <heading class="section-header">Research</heading>
               <p>
-                My research interests lie in the area of <span class="highlight">Diffusion Models</span> and <span class="highlight">Multimodal Large Language Models</span>. My previous works also included <span class="highlight">2D and 3D Visual Perception</span>. (*: Equal Contribution †: Corresponding Author)
+                My research focuses on advancing generative AI through two complementary directions: developing <span class="highlight">Diffusion Models</span> for high-quality visual content generation, and building <span class="highlight">Multimodal Large Language Models</span> that seamlessly integrate vision and language understanding. I'm particularly interested in creating unified frameworks that bridge these modalities for real-world applications. My earlier work also explored fundamental problems in <span class="highlight">Large Vision Foundation Models</span>.
               </p>
+              <p class="click-hint">Click section headers below to expand/collapse</p>
+              <p style="font-size:0.9em;color:#666;">(*: Equal Contribution &nbsp;&nbsp; †: Corresponding Author)</p>
             </td>
           </tr>
         </tbody></table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+
+        <!-- Large Multimodal Models Section -->
+        <div class="paper-section" id="multimodal-section">
+          <h3 onclick="toggleSection('multimodal-section')">Large Multimodal Models</h3>
+          <div class="paper-content">
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
             <tr onmouseout="vividface_stop()" onmouseover="vividface_start()">
               <td style="padding:10px;width:40%;vertical-align:middle">
                 <div class="one" style="width:100%">
-                  <img src='images/vividface.png' style="width:100%">
+                  <img src='images/vividface.png' style="width:100%;border-radius:5px;">
                 </div>
                 <script type="text/javascript">
                   function vividface_start() {
@@ -96,10 +190,11 @@
                   <p>We propose a diffusion-based framework for video face swapping, featuring hybrid training, an AIDT dataset, and 3D reconstruction for superior identity preservation and temporal consistency.</p>
                 </td>
               </tr>
+
           <tr onmouseout="easyref_stop()" onmouseover="easyref_start()">
             <td style="padding:10px;width:40%;vertical-align:middle">
               <div class="one" style="width:100%">
-                <img src='images/easyref.png' style="width:100%">
+                <img src='images/easyref.png' style="width:100%;border-radius:5px;">
               </div>
               <script type="text/javascript">
                 function easyref_start() {
@@ -141,7 +236,7 @@
           <tr onmouseout="mova_stop()" onmouseover="mova_start()">
 			      <td style="padding:10px;width:40%;vertical-align:middle">
               <div class="one" style="width:100%">
-                <img src='images/mova.jpg' style="width:100%">
+                <img src='images/mova.jpg' style="width:100%;border-radius:5px;">
               </div>
 			        <script type="text/javascript">
 			          function mova_start() {
@@ -182,7 +277,7 @@
             <tr onmouseout="lidit_stop()" onmouseover="lidit_start()">
               <td style="padding:10px;width:40%;vertical-align:middle">
                 <div class="one" style="width:100%">
-                  <img src='images/lidit.png' style="width:100%">
+                  <img src='images/lidit.png' style="width:100%;border-radius:5px;">
                 </div>
                 <script type="text/javascript">
                   function lidit_start() {
@@ -215,11 +310,11 @@
                   <p>We propose to unleash the prompt encoding capability of large language models (LLMs) for diffusion models. LiDiT-10B surpasses state-of-the-art models including Stable Diffusion 3, DALL-E 3, and Midjourney V6. The proposed method is also one of the core technologies powering <a href="https://miaohua.sensetime.com/">SenseMirage</a>.</p>
                 </td>
               </tr>
-
+                          
             <tr onmouseout="visualcot_stop()" onmouseover="visualcot_start()">
               <td style="padding:10px;width:40%;vertical-align:middle">
                 <div class="one" style="width:100%">
-                  <img src='images/visualcot.png' style="width:100%">
+                  <img src='images/visualcot.png' style="width:100%;border-radius:5px;">
                 </div>
                 <script type="text/javascript">
                   function visualcot_start() {
@@ -258,93 +353,103 @@
                 </td>
               </tr>
 
-      <tr onmouseout="comat_stop()" onmouseover="comat_start()">
-        <td style="padding:10px;width:40%;vertical-align:middle">
-          <div class="one">
-            <div class="two" id='comat_image'>
-              <img src='images/comat_after.png' width="260" height="170"></div>
-              <img src='images/comat_before.png' width="260" height="170">
+              <tr onmouseout="comat_stop()" onmouseover="comat_start()">
+                <td style="padding:10px;width:40%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='comat_image'>
+                      <img src='images/comat_after.png' width="260" height="170" style="border-radius:5px;"></div>
+                      <img src='images/comat_before.png' width="260" height="170" style="border-radius:5px;">
+                  </div>
+                  <script type="text/javascript">
+                    function comat_start() {
+                      document.getElementById('comat_image').style.opacity = "1";
+                    }
+        
+                    function comat_stop() {
+                      document.getElementById('comat_image').style.opacity = "0";
+                    }
+                    comat_stop()
+                  </script>
+                </td>
+                      <td style="padding:10px;width:60%;vertical-align:middle">
+                    <a href="https://caraj7.github.io/">
+                      <papertitle>CoMat: Aligning Text-to-Image Diffusion Model with Image-to-Text Concept Matching</papertitle>
+                    </a>
+                    <br>
+                    Dongzhi Jiang, 
+                    Guanglu Song, 
+                    Xiaoshi Wu, 
+                    Renrui Zhang, 
+                    Dazhong Shen,
+                    <strong>Zhuofan Zong</strong>,
+                    Yu Liu†,
+                    Hongsheng Li†
+                    <br>
+              <em>NeurIPS</em>, 2024
+                    <br>
+                    <a href="https://caraj7.github.io/">project page</a>
+              /
+                    <a href="https://arxiv.org/abs/2404.03653">paper</a>
+              /
+                    <a href="https://github.com/CaraJ7/CoMat">code</a>
+                    <p></p>
+                    <p>We propose a fine-tuning strategy to address the text-to-image misalignment issue with image-to-text concept matching. The training data only includes text prompts.</p>
+                  </td>
+                </tr>
+        
+                <tr onmouseout="raphael_stop()" onmouseover="raphael_start()">
+                  <td style="padding:10px;width:40%;vertical-align:middle">
+                    <div class="one" style="width:100%">
+                      <img src='images/raphael.png' style="width:100%;border-radius:5px;">
+                    </div>
+                    <script type="text/javascript">
+                      function raphael_start() {
+                        document.getElementById('raphael_image').style.opacity = "1";
+                      }
+        
+                      function raphael_stop() {
+                        document.getElementById('raphael_image').style.opacity = "0";
+                      }
+                      raphael_stop()
+                    </script>
+                  </td>
+                        <td style="padding:10px;width:60%;vertical-align:middle">
+                      <a href="https://arxiv.org/abs/2305.18295">
+                        <papertitle>RAPHAEL: Text-to-Image Generation via Large Mixture of Diffusion Paths</papertitle>
+                      </a>
+                      <br>
+                      Zeyue Xue*, 
+                      Guanglu Song*, 
+                      Qiushan Guo, 
+                      Boxiao Liu,
+                      <strong>Zhuofan Zong</strong>,
+                      Yu Liu†,
+                      Ping Luo†
+                      <br>
+                <em>NeurIPS</em>, 2023
+                      <br>
+                      <a href="https://arxiv.org/pdf/2304.00967">paper</a>
+                /
+                      <a href="https://miaohua.sensetime.com/">model API</a>
+                      <p></p>
+                      <p> RAPHAEL proposes space-MoE and time-MoE layers and achieves a state-of-the-art zero-shot FID score of 6.61 on the COCO dataset. The proposed method is also one of the core technologies powering <a href="https://miaohua.sensetime.com/">SenseMirage</a>.</p>
+                    </td>
+                  </tr>              
+
+          </tbody></table>
           </div>
-          <script type="text/javascript">
-            function comat_start() {
-              document.getElementById('comat_image').style.opacity = "1";
-            }
+        </div>
 
-            function comat_stop() {
-              document.getElementById('comat_image').style.opacity = "0";
-            }
-            comat_stop()
-          </script>
-        </td>
-              <td style="padding:10px;width:60%;vertical-align:middle">
-            <a href="https://caraj7.github.io/">
-              <papertitle>CoMat: Aligning Text-to-Image Diffusion Model with Image-to-Text Concept Matching</papertitle>
-            </a>
-            <br>
-            Dongzhi Jiang, 
-            Guanglu Song, 
-            Xiaoshi Wu, 
-            Renrui Zhang, 
-            Dazhong Shen,
-            <strong>Zhuofan Zong</strong>,
-            Yu Liu†,
-            Hongsheng Li†
-            <br>
-      <em>NeurIPS</em>, 2024
-            <br>
-            <a href="https://caraj7.github.io/">project page</a>
-      /
-            <a href="https://arxiv.org/abs/2404.03653">paper</a>
-      /
-            <a href="https://github.com/CaraJ7/CoMat">code</a>
-            <p></p>
-            <p>We propose a fine-tuning strategy to address the text-to-image misalignment issue with image-to-text concept matching. The training data only includes text prompts.</p>
-          </td>
-        </tr>
-
-        <tr onmouseout="raphael_stop()" onmouseover="raphael_start()">
-          <td style="padding:10px;width:40%;vertical-align:middle">
-            <div class="one" style="width:100%">
-              <img src='images/raphael.png' style="width:100%">
-            </div>
-            <script type="text/javascript">
-              function raphael_start() {
-                document.getElementById('raphael_image').style.opacity = "1";
-              }
-
-              function raphael_stop() {
-                document.getElementById('raphael_image').style.opacity = "0";
-              }
-              raphael_stop()
-            </script>
-          </td>
-                <td style="padding:10px;width:60%;vertical-align:middle">
-              <a href="https://arxiv.org/abs/2305.18295">
-                <papertitle>RAPHAEL: Text-to-Image Generation via Large Mixture of Diffusion Paths</papertitle>
-              </a>
-              <br>
-              Zeyue Xue*, 
-              Guanglu Song*, 
-              Qiushan Guo, 
-              Boxiao Liu,
-              <strong>Zhuofan Zong</strong>,
-              Yu Liu†,
-              Ping Luo†
-              <br>
-        <em>NeurIPS</em>, 2023
-              <br>
-              <a href="https://arxiv.org/pdf/2304.00967">paper</a>
-        /
-              <a href="https://miaohua.sensetime.com/">model API</a>
-              <p></p>
-              <p> RAPHAEL proposes space-MoE and time-MoE layers and achieves a state-of-the-art zero-shot FID score of 6.61 on the COCO dataset. The proposed method is also one of the core technologies powering <a href="https://miaohua.sensetime.com/">SenseMirage</a>.</p>
-            </td>
-          </tr>
+        <!-- Large Vision Foundation Models Section -->
+        <div class="paper-section" id="vision-section">
+          <h3 onclick="toggleSection('vision-section')">Large Vision Foundation Models</h3>
+          <div class="paper-content">
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
           <tr onmouseout="hop_stop()" onmouseover="hop_start()">
             <td style="padding:10px;width:40%;vertical-align:middle">
               <div class="one" style="width:100%">
-                <img src='images/hop.jpg' style="width:100%">
+                <img src='images/hop.jpg' style="width:100%;border-radius:5px;">
               </div>
               <script type="text/javascript">
                 function hop_start() {
@@ -383,7 +488,7 @@
           <tr onmouseout="codetr_stop()" onmouseover="codetr_start()">
             <td style="padding:10px;width:40%;vertical-align:middle">
               <div class="one" style="width:100%">
-                <img src='images/codetr.jpg' style="width:100%">
+                <img src='images/codetr.jpg' style="width:100%;border-radius:5px;">
               </div>
               <script type="text/javascript">
                 function codetr_start() {
@@ -420,7 +525,7 @@
             <tr onmouseout="agvm_stop()" onmouseover="agvm_start()">
               <td style="padding:10px;width:40%;vertical-align:middle">
                 <div class="one" style="width:100%">
-                  <img src='images/agvm.jpg' style="width:100%">
+                  <img src='images/agvm.jpg' style="width:100%;border-radius:5px;">
                 </div>
                 <script type="text/javascript">
                   function agvm_start() {
@@ -461,7 +566,7 @@
               <tr onmouseout="sit_stop()" onmouseover="sit_start()">
                 <td style="padding:10px;width:40%;vertical-align:middle">
                   <div class="one" style="width:100%">
-                    <img src='images/sit.jpg' style="width:100%">
+                    <img src='images/sit.jpg' style="width:100%;border-radius:5px;">
                   </div>
                   <script type="text/javascript">
                     function sit_start() {
@@ -500,7 +605,7 @@
           <tr onmouseout="rcnet_stop()" onmouseover="rcnet_start()">
             <td style="padding:10px;width:40%;vertical-align:middle">
               <div class="one" style="width:100%">
-                <img src='images/rcnet.jpg' style="width:100%">
+                <img src='images/rcnet.jpg' style="width:100%;border-radius:5px;">
               </div>
               <script type="text/javascript">
                 function rcnet_start() {
@@ -535,7 +640,7 @@
           <tr onmouseout="agcn_stop()" onmouseover="agcn_start()">
             <td style="padding:10px;width:40%;vertical-align:middle">
               <div class="one" style="width:100%">
-                <img src='images/agcn.jpg' style="width:100%">
+                <img src='images/agcn.jpg' style="width:100%;border-radius:5px;">
               </div>
               <script type="text/javascript">
                 function agcn_start() {
@@ -568,13 +673,15 @@
               </td>
             </tr>                  
 
-        </tbody></table>
+          </tbody></table>
+          </div>
+        </div>
 
 				
         <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
           <tr>
             <td>
-              <heading>Education</heading>
+              <heading class="section-header">Education</heading>
             </td>
           </tr>
         </tbody></table>
@@ -620,7 +727,7 @@
     <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
             <tr>
               <td>
-                <heading>Experience</heading>
+                <heading class="section-header">Experience</heading>
               </td>
             </tr>
           </tbody></table>
@@ -648,7 +755,7 @@
           <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
             <tr>
               <td>
-                <heading>Academic Services</heading>
+                <heading class="section-header">Academic Services</heading>
               </td>
             </tr>
           </table>
@@ -664,7 +771,7 @@
           <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
             <tr>
               <td>
-                <heading>Teaching</heading>
+                <heading class="section-header">Teaching</heading>
               </td>
             </tr>
           </table>
@@ -676,8 +783,6 @@
                <p>Introduction to Digital Signal Processing (ELEG3503), Spring 2025</p>
             </li>
           </ul>          
-
-        <!-- <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=7dGBaDMtZFkEIaDRUkUST06a0FVM47GKoyOmZnkq49I&cl=ffffff&w=a"></script> -->
 
         </tbody></table>
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
@@ -693,6 +798,13 @@
       </td>
     </tr>
   </table>
+
+  <script>
+    function toggleSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      section.classList.toggle('collapsed');
+    }
+  </script>
 </body>
 
 </html>
