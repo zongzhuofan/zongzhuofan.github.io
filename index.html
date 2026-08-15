@@ -1,810 +1,1557 @@
-<!DOCTYPE HTML>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-  <title>Zhuofan Zong (宗卓凡)</title>
-  
-  <meta name="author" content="Zhuofan Zong">
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
-  
+  <meta
+    name="description"
+    content="Zhuofan Zong — final-year Ph.D. candidate at MMLab, CUHK, researching agentic visual generation, autoregressive video generation, and multimodal AI."
+  >
+  <meta name="author" content="Zhuofan Zong">
+  <meta name="theme-color" content="#245da8">
+
+  <title>Zhuofan Zong | 宗卓凡</title>
+
+  <link
+    rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23245da8%22/><path d=%22M23 25h54L58 43H42l14 10-31 23h53%22 fill=%22none%22 stroke=%22white%22 stroke-width=%2210%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>"
+  >
+
   <style>
-    /* Additional styling for better appearance */
-    .section-header {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      font-weight: bold;
-      margin-bottom: 15px;
+    :root {
+      --ink: #182230;
+      --muted: #667085;
+      --faint: #98a2b3;
+      --paper: #ffffff;
+      --surface: #f8fafc;
+      --surface-strong: #ffffff;
+      --line: #e4e7ec;
+      --accent: #245da8;
+      --accent-dark: #19477f;
+      --accent-soft: #f1f6fc;
+      --warm: #a75b20;
+      --warm-soft: #fff3e8;
+      --max-width: 1040px;
+      --serif: Georgia, "Times New Roman", "Songti SC", serif;
+      --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Helvetica, Arial, sans-serif;
     }
-    
-    .highlight {
-      color: #667eea;
-      font-weight: 600;
+
+    * {
+      box-sizing: border-box;
     }
-    
-    .paper-section {
-      background-color: #f8f9fa;
-      border-radius: 10px;
-      padding: 15px;
-      margin-bottom: 20px;
-      transition: all 0.3s ease;
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 92px;
     }
-    
-    .paper-section h3 {
-      color: #333;
-      border-bottom: 2px solid #667eea;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-      cursor: pointer;
-      user-select: none;
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.68;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: var(--accent-dark);
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    :focus-visible {
+      outline: 3px solid rgba(36, 93, 168, 0.28);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    .container {
+      width: min(calc(100% - 48px), var(--max-width));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .navbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      min-height: 64px;
     }
-    
-    .paper-section h3:hover {
-      color: #667eea;
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--ink);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      text-decoration: none;
     }
-    
-    .paper-section h3::after {
-      content: '▼';
-      font-size: 0.8em;
-      transition: transform 0.3s ease;
-    }
-    
-    .paper-section.collapsed h3::after {
-      transform: rotate(-90deg);
-    }
-    
-    .paper-section.collapsed .paper-content {
+
+    .brand-mark {
       display: none;
     }
-    
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+
+    .brand-cn {
+      color: var(--faint);
+      font-weight: 500;
     }
-    
-    a {
-      color: #667eea;
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-links a {
+      position: relative;
+      color: #475467;
+      font-size: 13px;
+      font-weight: 650;
       text-decoration: none;
-      transition: color 0.3s ease;
     }
-    
-    a:hover {
-      color: #764ba2;
-      text-decoration: underline;
+
+    .nav-links a::after {
+      position: absolute;
+      right: 0;
+      bottom: -8px;
+      left: 0;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform 180ms ease;
+      content: "";
     }
-    
-    .job-market-text {
-      color: #764ba2;
-      font-weight: 1000;
-      margin-top: 15px;
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--ink);
     }
-    
-    .click-hint {
-      font-size: 0.9em;
-      color: #888;
-      font-style: italic;
-      margin-top: -10px;
-      margin-bottom: 15px;
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      transform: scaleX(1);
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    .hero {
+      padding: 72px 0 64px;
+      background: #fbfcfe;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero::after {
+      display: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 240px;
+      gap: clamp(44px, 7vw, 72px);
+      align-items: center;
+    }
+
+    .hero h1 {
+      margin: 0;
+      max-width: 720px;
+      font-family: var(--sans);
+      font-size: clamp(42px, 6vw, 58px);
+      font-weight: 750;
+      letter-spacing: -0.045em;
+      line-height: 1.05;
+    }
+
+    .hero h1 span {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+      font-family: var(--sans);
+      font-size: 17px;
+      font-weight: 500;
+      letter-spacing: 0;
+      line-height: 1.3;
+    }
+
+    .hero-lead {
+      max-width: 690px;
+      margin: 25px 0 0;
+      color: #475467;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .hero-lead strong {
+      color: var(--ink);
+      font-weight: 680;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 40px;
+      padding: 0 14px;
+      color: var(--accent);
+      background: transparent;
+      background: #ffffff;
+      border: 1px solid #d0d5dd;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 680;
+      line-height: 1;
+      text-decoration: none;
+      transition:
+        color 160ms ease,
+        background 160ms ease,
+        border-color 160ms ease,
+        transform 160ms ease;
+    }
+
+    .button:hover {
+      color: #fff;
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .button svg {
+      width: 15px;
+      height: 15px;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.8;
+    }
+
+    .portrait-wrap {
+      overflow: hidden;
+      width: 240px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: 0 12px 32px rgba(16, 24, 40, 0.08);
+    }
+
+    .portrait-wrap::before {
+      display: none;
+    }
+
+    .portrait {
+      width: 100%;
+      height: auto;
+      aspect-ratio: auto;
+    }
+
+    .availability {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: center;
+      margin-top: 38px;
+      padding: 16px 18px;
+      background: var(--accent-soft);
+      border: 1px solid #d8e5f4;
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      color: #344054;
+      font-size: 14px;
+    }
+
+    .availability-dot {
+      width: 9px;
+      height: 9px;
+      background: var(--accent);
+      border: 3px solid rgba(36, 93, 168, 0.16);
+      border-radius: 50%;
+      box-sizing: content-box;
+    }
+
+    .availability strong {
+      color: var(--accent-dark);
+      font-weight: 740;
+    }
+
+    .availability a {
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .section {
+      padding: 72px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 28px;
+      padding-bottom: 13px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-family: var(--sans);
+      font-size: clamp(27px, 3.5vw, 33px);
+      font-weight: 720;
+      letter-spacing: -0.035em;
+      line-height: 1.15;
+    }
+
+    .section-link {
+      margin: 0;
+      font-size: 13px;
+      font-weight: 650;
+      white-space: nowrap;
+    }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .research-item {
+      padding: 24px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+    }
+
+    .research-item + .research-item {
+      padding-left: 24px;
+    }
+
+    .research-number {
+      color: var(--accent);
+      font-family: var(--sans);
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .research-item h3 {
+      margin: 14px 0 9px;
+      font-family: var(--sans);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+    }
+
+    .research-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .experience-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .experience-item {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 40px;
+      padding: 30px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .experience-meta {
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .experience-logo {
+      width: auto;
+      height: 38px;
+      max-width: 190px;
+      margin: 0 auto 17px;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .experience-logo.sensetime {
+      height: 52px;
+      margin-bottom: 8px;
+    }
+
+    .experience-meta time {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--ink);
+      font-weight: 680;
+    }
+
+    .experience-content h3 {
+      margin: 0 0 4px;
+      font-family: var(--sans);
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .experience-role {
+      margin: 0 0 13px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .experience-content > p:not(.experience-role):last-child {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .experience-role:last-child {
+      margin-bottom: 0;
+    }
+
+    .publication-group + .publication-group {
+      margin-top: 62px;
+    }
+
+    .group-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 17px;
+    }
+
+    .group-heading h3 {
+      margin: 0;
+      font-family: var(--sans);
+      font-size: 21px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .group-heading span {
+      color: var(--faint);
+      font-size: 11px;
+      font-weight: 730;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .paper-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .paper {
+      display: grid;
+      grid-template-columns: 190px minmax(0, 1fr) 92px;
+      gap: 25px;
+      align-items: start;
+      padding: 23px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .paper-media {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16 / 10;
+      background: #eef2f6;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+    }
+
+    .paper-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 400ms ease;
+    }
+
+    .paper:hover .paper-media img {
+      transform: scale(1.035);
+    }
+
+    .paper-media.diagram img {
+      object-fit: contain;
+    }
+
+    .paper-content h4 {
+      margin: -3px 0 8px;
+      font-family: var(--sans);
+      font-size: 17px;
+      font-weight: 680;
+      letter-spacing: -0.012em;
+      line-height: 1.38;
+    }
+
+    .paper-content h4 a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .paper-content h4 a:hover {
+      color: var(--accent);
+    }
+
+    .paper-authors {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .paper-authors strong {
+      color: var(--ink);
+      font-weight: 720;
+    }
+
+    .paper-summary {
+      margin: 0;
+      color: #667085;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .paper-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px 10px;
+      margin-top: 10px;
+    }
+
+    .paper-links a {
+      font-size: 11px;
+      font-weight: 730;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .paper-venue {
+      justify-self: end;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 780;
+      letter-spacing: 0.05em;
+      line-height: 1.4;
+      text-align: right;
+      text-transform: uppercase;
+    }
+
+    .paper-venue .spotlight {
+      display: inline-block;
+      margin-top: 7px;
+      padding: 3px 6px;
+      color: #8a4d25;
+      background: var(--warm-soft);
+      border-radius: 3px;
+      font-size: 9px;
+      letter-spacing: 0.06em;
+    }
+
+    .publication-note {
+      margin: 18px 0 0;
+      color: var(--faint);
+      font-size: 11px;
+    }
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 64px;
+    }
+
+    .education-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .education-item {
+      display: grid;
+      grid-template-columns: 76px minmax(0, 1fr);
+      gap: 22px;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .school-logo {
+      display: grid;
+      width: 64px;
+      height: 64px;
+      padding: 9px;
+      background: var(--surface-strong);
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      place-items: center;
+    }
+
+    .school-logo img {
+      max-height: 43px;
+      object-fit: contain;
+    }
+
+    .education-item h3 {
+      margin: 0 0 3px;
+      font-family: var(--sans);
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .education-degree,
+    .education-details {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .education-details {
+      margin-top: 7px;
+    }
+
+    .sidebar-block + .sidebar-block {
+      margin-top: 36px;
+    }
+
+    .sidebar-block h3 {
+      margin: 0 0 13px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+      font-family: var(--sans);
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .compact-list {
+      display: grid;
+      gap: 13px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .compact-list li {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .compact-list strong {
+      display: block;
+      color: var(--ink);
+      font-weight: 680;
+    }
+
+    .service-note {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .service-note strong {
+      color: var(--ink);
+      font-weight: 680;
+    }
+
+    footer {
+      padding: 34px 0 42px;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      color: var(--faint);
+      font-size: 11px;
+      letter-spacing: 0.04em;
+    }
+
+    .back-to-top {
+      color: var(--muted);
+      font-weight: 720;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr) 220px;
+        gap: 48px;
+      }
+
+      .experience-item {
+        grid-template-columns: 180px minmax(0, 1fr);
+        gap: 35px;
+      }
+
+      .paper {
+        grid-template-columns: 160px minmax(0, 1fr) 78px;
+        gap: 19px;
+      }
+
+      .education-grid {
+        gap: 42px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(calc(100% - 32px), var(--max-width));
+      }
+
+      .navbar {
+        min-height: 62px;
+      }
+
+      .brand-cn {
+        display: none;
+      }
+
+      .nav-links {
+        gap: 18px;
+      }
+
+      .hero {
+        padding: 56px 0 58px;
+      }
+
+      .hero-grid {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 38px;
+        align-items: flex-start;
+      }
+
+      .portrait-wrap {
+        width: 165px;
+      }
+
+      .hero h1 {
+        font-size: clamp(40px, 12vw, 50px);
+      }
+
+      .availability {
+        grid-template-columns: auto minmax(0, 1fr);
+      }
+
+      .availability a {
+        display: none;
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+
+      .experience-item {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .research-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .research-item,
+      .research-item + .research-item {
+        padding: 22px;
+        border-left: 0;
+      }
+
+      .research-item + .research-item {
+        border-top: 1px solid var(--line);
+      }
+
+      .research-item h3 {
+        margin-top: 13px;
+      }
+
+      .experience-item {
+        gap: 11px;
+      }
+
+      .paper {
+        grid-template-columns: 125px minmax(0, 1fr);
+        gap: 17px;
+      }
+
+      .paper-venue {
+        grid-column: 2;
+        grid-row: 2;
+        justify-self: start;
+        text-align: left;
+      }
+
+      .paper-summary {
+        display: none;
+      }
+
+      .education-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-links {
+        gap: 10px;
+      }
+
+      .nav-links a {
+        font-size: 11.5px;
+      }
+
+      .hero-lead {
+        font-size: 16px;
+      }
+
+      .button {
+        min-height: 39px;
+        padding-inline: 13px;
+      }
+
+      .paper {
+        grid-template-columns: 1fr;
+      }
+
+      .paper-media {
+        width: 155px;
+      }
+
+      .paper-venue {
+        grid-column: 1;
+        grid-row: auto;
+      }
+
+      .education-item {
+        grid-template-columns: 54px minmax(0, 1fr);
+        gap: 16px;
+      }
+
+      .school-logo {
+        width: 52px;
+        height: 52px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    @media print {
+      .site-header,
+      .hero-actions,
+      .availability,
+      .paper-media,
+      .back-to-top {
+        display: none;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      .hero,
+      .section {
+        padding: 30px 0;
+      }
+
+      .paper {
+        grid-template-columns: minmax(0, 1fr) 90px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-    <tr style="padding:0px">
-      <td style="padding:0px">
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr style="padding:0px">
-            <td style="padding:2.5%;width:63%;vertical-align:middle">
-              <p style="text-align:center">
-                <name>Zhuofan Zong</name>
-              <p>
-                I am a third-year Ph.D. student from <a href="https://mmlab.ie.cuhk.edu.hk/">MMLab</a>, The Chinese University of Hong Kong. I'm supervised by Prof. <a href="https://www.ee.cuhk.edu.hk/~hsli/">Hongsheng Li</a>. I received both my Bachelor's and Master's degrees from <a href="https://ev.buaa.edu.cn/">Beihang University</a>, supervised by Prof. <a href="https://scholar.google.com/citations?user=zQqJW3gAAAAJ&hl=en">Biao Leng</a>.
-              </p>
-              <p> 
-                I worked as a research intern in the Base Model Department at SenseTime Research, working closely with <a href="https://songguanglu.github.io/">Guanglu Song</a> and <a href="https://liuyu.us/">Yu Liu</a>. During my internship at SenseTime, I was a core member of the founding team for frontline R&D projects, including the large vision foundation model, the multimodal interactive model, and the AIGC product <a href="https://miaohua.sensetime.com/">SenseMirage</a>.
-              </p>
-              
-              <p class="job-market-text">
-                📢 I will be entering the job market in 2026, seeking Research Scientist positions in GenAI at industry labs. Please feel free to reach out if you have opportunities!
-              </p>
-              
-              <p style="text-align:center; margin-top:20px;">
-                <a href="mailto:zongzhuofan@gmail.com">Email</a> &nbsp/&nbsp
-                <a href="https://scholar.google.com/citations?user=vls0YhoAAAAJ">Google Scholar</a> &nbsp/&nbsp
-                <a href="https://github.com/TempleX98/">Github</a> &nbsp/&nbsp
-                <a href="images/wechat.JPG">WeChat</a>
-		<br>
-              </p>
-            </td>
-            <td style="padding:2.5%;width:40%;max-width:40%">
-              <a href="images/zongzhuofan.png"><img style="width:100%;max-width:100%;border-radius:10px;box-shadow: 0 4px 6px rgba(0,0,0,0.1);" alt="profile photo" src="images/zongzhuofan.png" class="hoverZoomLink"></a>
-            </td>
-          </tr>
-        </tbody></table>
-        
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
-              <heading class="section-header">Research</heading>
-              <p>
-                My research focuses on advancing generative AI through two complementary directions: developing <span class="highlight">Diffusion Models</span> for high-quality visual content generation, and building <span class="highlight">Multimodal Large Language Models</span> that seamlessly integrate vision and language understanding. I'm particularly interested in creating unified frameworks that bridge these modalities for real-world applications. My earlier work also explored fundamental problems in <span class="highlight">Large Vision Foundation Models</span>.
-              </p>
-              <p class="click-hint">Click section headers below to expand/collapse</p>
-              <p style="font-size:0.9em;color:#666;">(*: Equal Contribution &nbsp;&nbsp; †: Corresponding Author)</p>
-            </td>
-          </tr>
-        </tbody></table>
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Main navigation">
+      <a class="brand" href="#about" aria-label="Zhuofan Zong — Home">
+        <span class="brand-text">Zhuofan Zong</span>
+        <span class="brand-cn" lang="zh">宗卓凡</span>
+      </a>
 
-        <!-- Large Multimodal Models Section -->
-        <div class="paper-section" id="multimodal-section">
-          <h3 onclick="toggleSection('multimodal-section')">Large Multimodal Models</h3>
-          <div class="paper-content">
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+      <ul class="nav-links">
+        <li><a href="#research">Research</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#publications">Publications</a></li>
+      </ul>
+    </nav>
+  </header>
 
-            <tr onmouseout="vividface_stop()" onmouseover="vividface_start()">
-              <td style="padding:10px;width:40%;vertical-align:middle">
-                <div class="one" style="width:100%">
-                  <img src='images/vividface.png' style="width:100%;border-radius:5px;">
-                </div>
-                <script type="text/javascript">
-                  function vividface_start() {
-                    document.getElementById('vividface_image').style.opacity = "1";
-                  }
-  
-                  function vividface_stop() {
-                    document.getElementById('vividface_image').style.opacity = "0";
-                  }
-                  vividface_stop()
-                </script>
-              </td>
-                    <td style="padding:10px;width:60%;vertical-align:middle">
-                  <a href="https://hao-shao.com/projects/vividface.html">
-                    <papertitle>VividFace: A Diffusion-Based Hybrid Framework for High-Fidelity Video Face Swapping</papertitle>
-                  </a>
-                  <br>
-                  Hao Shao,
-                  Shulun Wang,
-                  Yang Zhou,
-                  Guanglu Song,
-                  Dailan He,
-                  Shuo Qin,
-                  <strong>Zhuofan Zong</strong>,
-                  Bingqi Ma,
-                  Yu Liu†,
-                  Hongsheng Li†
-                  <br>
-            <em>arXiv</em>, 2024
-                  <br>
-                  <a href="https://hao-shao.com/projects/vividface.html">project page</a>
-            /
-                  <a href="https://arxiv.org/pdf/2412.11279">paper</a>
-            /
-                  <a href="https://github.com/deepcs233/VividFace">code</a>
-                  <p></p>
-                  <p>We propose a diffusion-based framework for video face swapping, featuring hybrid training, an AIDT dataset, and 3D reconstruction for superior identity preservation and temporal consistency.</p>
-                </td>
-              </tr>
+  <main>
+    <section class="hero" id="about">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <h1>
+              Zhuofan Zong
+              <span lang="zh">宗卓凡 · Ph.D. Candidate at CUHK</span>
+            </h1>
 
-          <tr onmouseout="easyref_stop()" onmouseover="easyref_start()">
-            <td style="padding:10px;width:40%;vertical-align:middle">
-              <div class="one" style="width:100%">
-                <img src='images/easyref.png' style="width:100%;border-radius:5px;">
-              </div>
-              <script type="text/javascript">
-                function easyref_start() {
-                  document.getElementById('easyref_image').style.opacity = "1";
-                }
+            <p class="hero-lead">
+              I build <strong>generative models that understand, reason, and create</strong>
+              across modalities. I am a final-year Ph.D. candidate at
+              <a href="https://mmlab.ie.cuhk.edu.hk/" target="_blank" rel="noopener">MMLab, CUHK</a>,
+              advised by
+              <a href="https://www.ee.cuhk.edu.hk/~hsli/" target="_blank" rel="noopener">Prof. Hongsheng Li</a>
+              and
+              <a href="https://www.ee.cuhk.edu.hk/~xgwang/" target="_blank" rel="noopener">Prof. Xiaogang Wang</a>,
+              and currently a Research Intern at <strong>ByteDance Seed</strong>.
+              My current research focuses on <strong>agentic visual generation</strong>
+              and <strong>autoregressive video generation</strong>.
+            </p>
 
-                function easyref_stop() {
-                  document.getElementById('easyref_image').style.opacity = "0";
-                }
-                easyref_stop()
-              </script>
-            </td>
-                  <td style="padding:10px;width:60%;vertical-align:middle">
-                <a href="https://easyref-gen.github.io/">
-                  <papertitle>EasyRef: Omni-Generalized Group Image Reference for Diffusion Models via Multimodal LLM</papertitle>
-                </a>
-                <br>
-                <strong>Zhuofan Zong</strong>,
-                Dongzhi Jiang,
-                Bingqi Ma,
-                Guanglu Song,
-                Hao Shao,
-                Dazhong Shen,
-                Yu Liu,
-                Hongsheng Li†
-                <br>
-          <em>ICML</em>, 2025
-                <br>
-                <a href="https://easyref-gen.github.io/">project page</a>
-          /
-                <a href="https://arxiv.org/pdf/2412.09618">paper</a>
-          /
-                <a href="https://github.com/TempleX98/EasyRef">code</a>
-                <p></p>
-                <p>We present EasyRef, the first work that capable of modeling the consistent visual elements of various group image references with a single generalist multimodal LLM for diffusion models.</p>
-              </td>
-            </tr>
-            
-          <tr onmouseout="mova_stop()" onmouseover="mova_start()">
-			      <td style="padding:10px;width:40%;vertical-align:middle">
-              <div class="one" style="width:100%">
-                <img src='images/mova.jpg' style="width:100%;border-radius:5px;">
-              </div>
-			        <script type="text/javascript">
-			          function mova_start() {
-			            document.getElementById('mova_image').style.opacity = "1";
-			          }
+            <div class="hero-actions" aria-label="Profile links">
+              <a class="button" href="mailto:zongzhuofan@gmail.com">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 6.5h17v11h-17zM4 7l8 6 8-6"/></svg>
+                Email
+              </a>
+              <a class="button" href="https://scholar.google.com/citations?user=vls0YhoAAAAJ" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 9 9-5 9 5-9 5-9-5Z"/><path d="M7 12.5V17c3 2 7 2 10 0v-4.5M21 9v6"/></svg>
+                Scholar
+              </a>
+              <a class="button" href="https://github.com/TempleX98" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.5 1.4-4.5-2.5-6-3m12 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.7-1.4 5.7-6.2A4.8 4.8 0 0 0 19 7c.1-.3.6-1.7-.1-3.3 0 0-1-.3-3.5 1.3a12 12 0 0 0-6.4 0C6.5 3.4 5.5 3.7 5.5 3.7 4.8 5.3 5.3 6.7 5.4 7a4.8 4.8 0 0 0-1.3 3.3c0 4.8 3 5.9 5.8 6.2-.5.5-.6 1.1-.6 2V22"/></svg>
+                GitHub
+              </a>
+              <a class="button" href="images/wechat.JPG" target="_blank">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 5C5.9 5 3 7.4 3 10.3c0 1.7 1 3.2 2.5 4.2L5 16.8l2.5-1.3c.7.2 1.3.3 2 .3 3.6 0 6.5-2.4 6.5-5.5S13.1 5 9.5 5Z"/><path d="M13.8 9c4 0 7.2 2.5 7.2 5.7 0 1.8-1.1 3.5-2.8 4.5l.5 2-2.4-1.2c-.8.2-1.6.3-2.5.3-2.9 0-5.4-1.4-6.5-3.5"/></svg>
+                WeChat
+              </a>
+            </div>
+          </div>
 
-			          function mova_stop() {
-			            document.getElementById('mova_image').style.opacity = "0";
-			          }
-			          mova_stop()
-			        </script>
-			      </td>
-			            <td style="padding:10px;width:60%;vertical-align:middle">
-			          <a href="https://github.com/TempleX98/MoVA/">
-			            <papertitle>MoVA: Adapting Mixture of Vision Experts to Multimodal Context</papertitle>
-			          </a>
-			          <br>
-			          <strong>Zhuofan Zong*</strong>,
-			          Bingqi Ma*,
-                Dazhong Shen,
-			          Guanglu Song,
-                Hao Shao,
-                Dongzhi Jiang,
-			          Hongsheng Li†,
-                Yu Liu†
-			          <br>
-			    <em>NeurIPS</em>, 2024
-			          <br>
-			          <a href="https://arxiv.org/pdf/2404.13046">paper</a>
-			    /
-			          <a href="https://github.com/TempleX98/MoVA">code</a>
-			          <p></p>
-			          <p>MoVA is a novel MLLM that can adaptively route and fuse multiple task-specific vision experts in
-                  a coarse-to-fine mechanism, alleviating the bias of CLIP vision encoder. Without any bells and whistles, MoVA can achieve significant performance gains over current state-of-the-art methods.</p>
-			        </td>
-			      </tr>
-
-            <tr onmouseout="lidit_stop()" onmouseover="lidit_start()">
-              <td style="padding:10px;width:40%;vertical-align:middle">
-                <div class="one" style="width:100%">
-                  <img src='images/lidit.png' style="width:100%;border-radius:5px;">
-                </div>
-                <script type="text/javascript">
-                  function lidit_start() {
-                    document.getElementById('lidit_image').style.opacity = "1";
-                  }
-  
-                  function lidit_stop() {
-                    document.getElementById('lidit_image').style.opacity = "0";
-                  }
-                  lidit_stop()
-                </script>
-              </td>
-                    <td style="padding:10px;width:60%;vertical-align:middle">
-                  <a href="https://arxiv.org/abs/2406.11831">
-                    <papertitle>Exploring the Role of Large Language Models in Prompt Encoding for Diffusion Models</papertitle>
-                  </a>
-                  <br>
-                  Bingqi Ma*,
-                  <strong>Zhuofan Zong*</strong>,
-                  Guanglu Song,
-                  Hongsheng Li,
-                  Yu Liu†
-                  <br>
-            <em>NeurIPS</em>, 2024
-                  <br>
-                  <a href="https://arxiv.org/pdf/2406.11831">paper</a>
-            /
-                  <a href="https://miaohua.sensetime.com/">model API</a>
-                  <p></p>
-                  <p>We propose to unleash the prompt encoding capability of LLMs for diffusion models. LiDiT-10B surpasses state-of-the-art models including Stable Diffusion 3, DALL-E 3, and Midjourney V6. The proposed method is also one of the core technologies powering <a href="https://miaohua.sensetime.com/">SenseMirage</a>.</p>
-                </td>
-              </tr>
-                          
-            <tr onmouseout="visualcot_stop()" onmouseover="visualcot_start()">
-              <td style="padding:10px;width:40%;vertical-align:middle">
-                <div class="one" style="width:100%">
-                  <img src='images/visualcot.png' style="width:100%;border-radius:5px;">
-                </div>
-                <script type="text/javascript">
-                  function visualcot_start() {
-                    document.getElementById('visualcot_image').style.opacity = "1";
-                  }
-  
-                  function visualcot_stop() {
-                    document.getElementById('visualcot_image').style.opacity = "0";
-                  }
-                  visualcot_stop()
-                </script>
-              </td>
-                    <td style="padding:10px;width:60%;vertical-align:middle">
-                  <a href="https://hao-shao.com/projects/viscot.html">
-                    <papertitle>Visual CoT: Advancing Multi-Modal Language Models with a Comprehensive Dataset and Benchmark for Chain-of-Thought Reasoning</papertitle>
-                  </a>
-                  <br>
-                  Hao Shao, 
-                  Shengju Qian, 
-                  Han Xiao,
-                  Guanglu Song,
-                  <strong>Zhuofan Zong</strong>,
-                  Letian Wang,
-                  Yu Liu†,
-                  Hongsheng Li†
-                  <br>
-            <em>NeurIPS</em>, 2024, &nbsp <font color="red"><strong>(Spotlight Presentation)</strong></font>
-                  <br>
-                  <a href="https://hao-shao.com/projects/viscot.html">project page</a>
-            /
-                  <a href="https://arxiv.org/abs/2403.16999">paper</a>
-            /
-                  <a href="https://github.com/deepcs233/Visual-CoT">code</a>
-                  <p></p>
-                  <p>We propose Visual CoT, including a new pipeline/dataset/benchmark that enhances the interpretability of MLLMs by incorporating visual Chain-of-Thought reasoning, optimizing for complex visual inputs.</p>
-                </td>
-              </tr>
-
-              <tr onmouseout="comat_stop()" onmouseover="comat_start()">
-                <td style="padding:10px;width:40%;vertical-align:middle">
-                  <div class="one">
-                    <div class="two" id='comat_image'>
-                      <img src='images/comat_after.png' width="260" height="170" style="border-radius:5px;"></div>
-                      <img src='images/comat_before.png' width="260" height="170" style="border-radius:5px;">
-                  </div>
-                  <script type="text/javascript">
-                    function comat_start() {
-                      document.getElementById('comat_image').style.opacity = "1";
-                    }
-        
-                    function comat_stop() {
-                      document.getElementById('comat_image').style.opacity = "0";
-                    }
-                    comat_stop()
-                  </script>
-                </td>
-                      <td style="padding:10px;width:60%;vertical-align:middle">
-                    <a href="https://caraj7.github.io/">
-                      <papertitle>CoMat: Aligning Text-to-Image Diffusion Model with Image-to-Text Concept Matching</papertitle>
-                    </a>
-                    <br>
-                    Dongzhi Jiang, 
-                    Guanglu Song, 
-                    Xiaoshi Wu, 
-                    Renrui Zhang, 
-                    Dazhong Shen,
-                    <strong>Zhuofan Zong</strong>,
-                    Yu Liu†,
-                    Hongsheng Li†
-                    <br>
-              <em>NeurIPS</em>, 2024
-                    <br>
-                    <a href="https://caraj7.github.io/">project page</a>
-              /
-                    <a href="https://arxiv.org/abs/2404.03653">paper</a>
-              /
-                    <a href="https://github.com/CaraJ7/CoMat">code</a>
-                    <p></p>
-                    <p>We propose a fine-tuning strategy to address the text-to-image misalignment issue with image-to-text concept matching. The training data only includes text prompts.</p>
-                  </td>
-                </tr>
-        
-                <tr onmouseout="raphael_stop()" onmouseover="raphael_start()">
-                  <td style="padding:10px;width:40%;vertical-align:middle">
-                    <div class="one" style="width:100%">
-                      <img src='images/raphael.png' style="width:100%;border-radius:5px;">
-                    </div>
-                    <script type="text/javascript">
-                      function raphael_start() {
-                        document.getElementById('raphael_image').style.opacity = "1";
-                      }
-        
-                      function raphael_stop() {
-                        document.getElementById('raphael_image').style.opacity = "0";
-                      }
-                      raphael_stop()
-                    </script>
-                  </td>
-                        <td style="padding:10px;width:60%;vertical-align:middle">
-                      <a href="https://arxiv.org/abs/2305.18295">
-                        <papertitle>RAPHAEL: Text-to-Image Generation via Large Mixture of Diffusion Paths</papertitle>
-                      </a>
-                      <br>
-                      Zeyue Xue*, 
-                      Guanglu Song*, 
-                      Qiushan Guo, 
-                      Boxiao Liu,
-                      <strong>Zhuofan Zong</strong>,
-                      Yu Liu†,
-                      Ping Luo†
-                      <br>
-                <em>NeurIPS</em>, 2023
-                      <br>
-                      <a href="https://arxiv.org/pdf/2304.00967">paper</a>
-                /
-                      <a href="https://miaohua.sensetime.com/">model API</a>
-                      <p></p>
-                      <p> RAPHAEL proposes space-MoE and time-MoE layers and achieves a state-of-the-art zero-shot FID score of 6.61 on the COCO dataset. The proposed method is also one of the core technologies powering <a href="https://miaohua.sensetime.com/">SenseMirage</a>.</p>
-                    </td>
-                  </tr>              
-
-          </tbody></table>
+          <div class="portrait-wrap">
+            <img
+              class="portrait"
+              src="images/zongzhuofan.png"
+              alt="Portrait of Zhuofan Zong"
+              width="885"
+              height="997"
+            >
           </div>
         </div>
 
-        <!-- Large Vision Foundation Models Section -->
-        <div class="paper-section" id="vision-section">
-          <h3 onclick="toggleSection('vision-section')">Large Vision Foundation Models</h3>
-          <div class="paper-content">
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+        <div class="availability">
+          <span class="availability-dot" aria-hidden="true"></span>
+          <span>
+            <strong>Seeking 2027 Research Scientist opportunities.</strong>
+            I expect to graduate in July 2027 and am looking for roles focused on
+            visual generation and world models.
+          </span>
+          <a href="mailto:zongzhuofan@gmail.com">Get in touch →</a>
+        </div>
+      </div>
+    </section>
 
-          <tr onmouseout="hop_stop()" onmouseover="hop_start()">
-            <td style="padding:10px;width:40%;vertical-align:middle">
-              <div class="one" style="width:100%">
-                <img src='images/hop.jpg' style="width:100%;border-radius:5px;">
+    <section class="section" id="research">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Research</h2>
+        </div>
+
+        <div class="research-grid">
+          <article class="research-item">
+            <span class="research-number">01</span>
+            <h3>Multimodal generation</h3>
+            <p>
+              Generative models for high-quality, controllable image and video
+              synthesis, including diffusion and unified generative models.
+            </p>
+          </article>
+          <article class="research-item">
+            <span class="research-number">02</span>
+            <h3>Multimodal understanding</h3>
+            <p>
+              Multimodal large language models that perceive diverse visual inputs
+              and reason over complex multimodal content.
+            </p>
+          </article>
+          <article class="research-item">
+            <span class="research-number">03</span>
+            <h3>Large vision foundation models</h3>
+            <p>
+              Scalable visual representation learning, model architectures, and
+              efficient training for general-purpose vision systems.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Experience</h2>
+        </div>
+
+        <div class="experience-list">
+          <article class="experience-item">
+            <div class="experience-meta">
+              <img
+                class="experience-logo"
+                src="images/bytedance-seed.png"
+                alt="ByteDance Seed"
+              >
+              <time datetime="2026-07">Jul 2026 — Present</time>
+              Beijing, China
+            </div>
+            <div class="experience-content">
+              <h3>ByteDance Seed</h3>
+              <p class="experience-role">Research Intern · Seed Vision · Mentor: <a href="https://openreview.net/profile?id=~Liyang_Liu1" target="_blank" rel="noopener">Liyang Liu</a></p>
+              <p>
+                Working on enhancing
+                <a href="https://seed.bytedance.com/en/seedream5_0_pro" target="_blank" rel="noopener">Seedream</a>'s
+                agentic generation capabilities.
+              </p>
+            </div>
+          </article>
+
+          <article class="experience-item">
+            <div class="experience-meta">
+              <img
+                class="experience-logo sensetime"
+                src="images/sensetime.png"
+                alt="SenseTime"
+                loading="lazy"
+              >
+              <time datetime="2025-01">Jan 2025 — Jul 2026</time>
+              Beijing, China
+            </div>
+            <div class="experience-content">
+              <h3>SenseTime Research</h3>
+              <p class="experience-role">Research Intern · Interaction Model R&amp;D · Mentor: Mingjie Zhan</p>
+              <p>
+                Designed visual output capabilities for interactive foundation models,
+                with an emphasis on real-time, synchronized, and high-fidelity
+                audio-video generation.
+              </p>
+            </div>
+          </article>
+
+          <article class="experience-item">
+            <div class="experience-meta">
+              <img
+                class="experience-logo sensetime"
+                src="images/sensetime.png"
+                alt="SenseTime"
+                loading="lazy"
+              >
+              <time datetime="2021-05">May 2021 — Jan 2025</time>
+              Beijing, China
+            </div>
+            <div class="experience-content">
+              <h3>SenseTime Research</h3>
+              <p class="experience-role">
+                Research Intern · Base Model R&amp;D · Mentors:
+                <a href="https://songguanglu.github.io/" target="_blank" rel="noopener">Guanglu Song</a>
+                &amp; <a href="https://liuyu.us/" target="_blank" rel="noopener">Yu Liu</a>
+              </p>
+              <p>
+                Researched diffusion models, multimodal LLMs, and large vision foundation
+                models. A core founding member of frontier R&amp;D projects including a
+                large vision foundation model, a multimodal interactive model, and
+                <a href="https://miaohua.sensetime.com/" target="_blank" rel="noopener">SenseMirage</a>.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="publications">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Publications</h2>
+          <p class="section-link">
+            <a href="https://scholar.google.com/citations?user=vls0YhoAAAAJ" target="_blank" rel="noopener">
+              Google Scholar →
+            </a>
+          </p>
+        </div>
+
+        <div class="publication-group">
+          <div class="group-heading">
+            <h3>Multimodal Models</h3>
+            <span>2023 — 2026</span>
+          </div>
+
+          <div class="paper-list">
+            <article class="paper">
+              <div class="paper-media diagram">
+                <img
+                  src="images/voca.png"
+                  alt="Overview of the VoCa unified autoregressive audio-video generation framework"
+                  loading="lazy"
+                >
               </div>
-              <script type="text/javascript">
-                function hop_start() {
-                  document.getElementById('hop_image').style.opacity = "1";
-                }
-
-                function hop_stop() {
-                  document.getElementById('hop_image').style.opacity = "0";
-                }
-                hop_stop()
-              </script>
-            </td>
-                  <td style="padding:10px;width:60%;vertical-align:middle">
-                <a href="https://github.com/Sense-X/HoP/">
-                  <papertitle>Temporal Enhanced Training of Multi-view 3D Object Detector via Historical Object Prediction</papertitle>
-                </a>
-                <br>
-                <strong>Zhuofan Zong*</strong>,
-                Dongzhi Jiang*,
-                Guanglu Song,
-                Zeyue Xue,
-                Jingyong Su,
-                Hongsheng Li†,
-                Yu Liu†
-                <br>
-          <em>ICCV</em>, 2023
-                <br>
-                <a href="https://arxiv.org/pdf/2304.00967">paper</a>
-          /
-                <a href="https://github.com/Sense-X/HoP">code</a>
-                <p></p>
-                <p>We propose a new paradigm, named Historical Object Prediction (HoP) for multi-view 3D detection to leverage temporal information more effectively. HoP achieves 68.5% NDS and 62.4% mAP with ViT-L, outperforming all the counterparts on the <a href="https://www.nuscenes.org/object-detection?externalData=all&mapData=all&modalities=Camera">nuScenes detection (camera-only) leaderboard</a>.</p>
-              </td>
-            </tr>
-
-          <tr onmouseout="codetr_stop()" onmouseover="codetr_start()">
-            <td style="padding:10px;width:40%;vertical-align:middle">
-              <div class="one" style="width:100%">
-                <img src='images/codetr.jpg' style="width:100%;border-radius:5px;">
+              <div class="paper-content">
+                <h4>VoCa: Unified Autoregressive Modeling for Talking Audio-Video Generation</h4>
+                <p class="paper-authors">
+                  <strong>Zhuofan Zong</strong>, Jiale Yuan, Yufei Liu, Dongzhi Jiang,
+                  Hao Shao, Zimu Lu, Ke Wang, Yunqiao Yang, Mingjie Zhan, and Hongsheng Li
+                </p>
+                <p class="paper-summary">
+                  A unified autoregressive framework for synchronized talking
+                  audio-video generation.
+                </p>
               </div>
-              <script type="text/javascript">
-                function codetr_start() {
-                  document.getElementById('codetr_image').style.opacity = "1";
-                }
+              <div class="paper-venue">ECCV<br>2026</div>
+            </article>
 
-                function codetr_stop() {
-                  document.getElementById('codetr_image').style.opacity = "0";
-                }
-                codetr_stop()
-              </script>
-            </td>
-                  <td style="padding:10px;width:60%;vertical-align:middle">
-                <a href="https://github.com/Sense-X/Co-DETR/">
-                  <papertitle>DETRs with Collaborative Hybrid Assignments Training</papertitle>
-                </a>
-                <br>
-                <strong>Zhuofan Zong</strong>,
-                Guanglu Song,
-                Yu Liu†
-                <br>
-          <em>ICCV</em>, 2023
-                <br>
-                <a href="https://arxiv.org/pdf/2211.12860">paper</a>
-          /
-                <a href="https://github.com/Sense-X/Co-DETR">code</a>   
-          /   
-                <a href="https://mp.weixin.qq.com/s/68ZbM9wwIB_Hfm-J8MTumA">中文解读</a>   
-                <p></p>
-                <p>We present a novel collaborative hybrid assignments training scheme and achieve state-of-the-art performances on object detection and instance segmentation tasks. Specifically, Co-DETR is the first model to achieve 66.0 box AP and 57.0 mask AP on the <a href="https://codalab.lisn.upsaclay.fr/competitions/7384#results">COCO test-dev leaderboard</a>.</p>
-              </td>
-            </tr>
-
-            <tr onmouseout="agvm_stop()" onmouseover="agvm_start()">
-              <td style="padding:10px;width:40%;vertical-align:middle">
-                <div class="one" style="width:100%">
-                  <img src='images/agvm.jpg' style="width:100%;border-radius:5px;">
+            <article class="paper">
+              <a class="paper-media" href="https://hao-shao.com/projects/vividface.html" target="_blank" rel="noopener" aria-label="Open VividFace project page">
+                <img src="images/vividface.png" alt="" loading="lazy">
+              </a>
+              <div class="paper-content">
+                <h4><a href="https://hao-shao.com/projects/vividface.html" target="_blank" rel="noopener">VividFace: A Diffusion-Based Hybrid Framework for High-Fidelity Video Face Swapping</a></h4>
+                <p class="paper-authors">
+                  Hao Shao, Shulun Wang, Yang Zhou, Guanglu Song, Dailan He, Shuo Qin,
+                  <strong>Zhuofan Zong</strong>, Bingqi Ma, Yu Liu, Hongsheng Li
+                </p>
+                <p class="paper-summary">
+                  Hybrid diffusion training and 3D reconstruction for identity-preserving,
+                  temporally consistent video face swapping.
+                </p>
+                <div class="paper-links">
+                  <a href="https://hao-shao.com/projects/vividface.html" target="_blank" rel="noopener">Project</a>
+                  <a href="https://arxiv.org/pdf/2412.11279" target="_blank" rel="noopener">Paper</a>
+                  <a href="https://github.com/deepcs233/VividFace" target="_blank" rel="noopener">Code</a>
                 </div>
-                <script type="text/javascript">
-                  function agvm_start() {
-                    document.getElementById('agvm_image').style.opacity = "1";
-                  }
-  
-                  function agvm_stop() {
-                    document.getElementById('agvm_image').style.opacity = "0";
-                  }
-                  agvm_stop()
-                </script>
-              </td>
-                    <td style="padding:10px;width:60%;vertical-align:middle">
-                  <a href="https://github.com/Sense-X/AGVM/">
-                    <papertitle>Large-batch Optimization for Dense Visual Predictions: Training Faster R-CNN in 4.2 Minutes</papertitle>
-                  </a>
-                  <br>
-                  Zeyue Xue, 
-                  Jianming Liang, 
-                  Guanglu Song,
-                  <strong>Zhuofan Zong</strong>,
-                  Liang Chen,
-                  Yu Liu†,
-                  Ping Luo†
-                  <br>
-            <em>NeurIPS</em>, 2022
-                  <br>
-                  <a href="https://proceedings.neurips.cc/paper_files/paper/2022/file/76bea0a1cf7bf9b78f842009f6de15a1-Paper-Conference.pdf">paper</a>
-            /
-                  <a href="https://github.com/Sense-X/AGVM">code</a>
-            /
-                  <a href="https://mp.weixin.qq.com/s/cmOXvXAelQoXm6ZH-9Vf2w">中文解读</a>
-                  <p></p>
-                  <p>We propose Adaptive Gradient Variance Modulator (AGVM) to train dense visual predictors with very large batch size. It enables training an object detector with one billion parameters in just 3.5 hours, reducing the training time by 20.9×, whilst achieving 62.2 mAP on the COCO val leaderboard.</p>
-                </td>
-              </tr>
-                         
-              <tr onmouseout="sit_stop()" onmouseover="sit_start()">
-                <td style="padding:10px;width:40%;vertical-align:middle">
-                  <div class="one" style="width:100%">
-                    <img src='images/sit.jpg' style="width:100%;border-radius:5px;">
-                  </div>
-                  <script type="text/javascript">
-                    function sit_start() {
-                      document.getElementById('sit_image').style.opacity = "1";
-                    }
-    
-                    function sit_stop() {
-                      document.getElementById('sit_image').style.opacity = "0";
-                    }
-                    sit_stop()
-                  </script>
-                </td>
-                      <td style="padding:10px;width:60%;vertical-align:middle">
-                    <a href="https://github.com/Sense-X/SiT/">
-                      <papertitle>Self-slimmed Vision Transformer</papertitle>
-                    </a>
-                    <br>
-                    <strong>Zhuofan Zong*</strong>,
-                    Kunchang Li*,
-                    Guanglu Song,
-                    Yali Wang,
-                    Yu Qiao,
-                    Biao Leng,
-                    Yu Liu†
-                    <br>
-              <em>ECCV</em>, 2022
-                    <br>
-                    <a href="https://arxiv.org/pdf/2111.12624">paper</a>
-              /
-                    <a href="https://github.com/Sense-X/SiT">code</a>
-                    <p></p>
-                    <p>We propose a generic self-slimmed learning approach for ViT token pruning. Our method can speed up ViTs by 1.7x with negligible accuracy drop, and even speed up ViTs by 3.6x while maintaining 97% of their performance on the ImageNet-1K dataset.</p>
-                  </td>
-                </tr>
-
-          <tr onmouseout="rcnet_stop()" onmouseover="rcnet_start()">
-            <td style="padding:10px;width:40%;vertical-align:middle">
-              <div class="one" style="width:100%">
-                <img src='images/rcnet.jpg' style="width:100%;border-radius:5px;">
               </div>
-              <script type="text/javascript">
-                function rcnet_start() {
-                  document.getElementById('rcnet_image').style.opacity = "1";
-                }
+              <div class="paper-venue">NeurIPS<br>2025</div>
+            </article>
 
-                function rcnet_stop() {
-                  document.getElementById('rcnet_image').style.opacity = "0";
-                }
-                rcnet_stop()
-              </script>
-            </td>
-                  <td style="padding:10px;width:60%;vertical-align:middle">
-                <a href="https://github.com/TempleX98/RCNet/">
-                  <papertitle>RCNet: Reverse Feature Pyramid and Cross-scale Shift Network for Object Detection</papertitle>
-                </a>
-                <br>
-                <strong>Zhuofan Zong</strong>,
-                Qianggang Cao,
-                Biao Leng†
-                <br>
-          <em>ACM MM</em>, 2021
-                <br>
-                <a href="https://arxiv.org/pdf/2110.12130">paper</a>
-          /
-                <a href="https://github.com/TempleX98/RCNet/">code</a>
-                <p></p>
-                <p>We introduce RCNet, a novel architecture for multiscale feature fusion in object detection, addressing the inefficiencies and limitations of traditional Feature Pyramid Networks (FPN). Experiments on the MS COCO dataset show RCNet can bring significant performance gains.</p>
-              </td>
-            </tr>
-
-          <tr onmouseout="agcn_stop()" onmouseover="agcn_start()">
-            <td style="padding:10px;width:40%;vertical-align:middle">
-              <div class="one" style="width:100%">
-                <img src='images/agcn.jpg' style="width:100%;border-radius:5px;">
+            <article class="paper">
+              <a class="paper-media" href="https://easyref-gen.github.io/" target="_blank" rel="noopener" aria-label="Open EasyRef project page">
+                <img src="images/easyref.png" alt="" loading="lazy">
+              </a>
+              <div class="paper-content">
+                <h4><a href="https://easyref-gen.github.io/" target="_blank" rel="noopener">EasyRef: Omni-Generalized Group Image Reference for Diffusion Models via Multimodal LLM</a></h4>
+                <p class="paper-authors">
+                  <strong>Zhuofan Zong</strong>, Dongzhi Jiang, Bingqi Ma, Guanglu Song,
+                  Hao Shao, Dazhong Shen, Yu Liu, Hongsheng Li
+                </p>
+                <p class="paper-summary">
+                  A generalist multimodal LLM that models consistent visual elements from
+                  diverse groups of reference images.
+                </p>
+                <div class="paper-links">
+                  <a href="https://easyref-gen.github.io/" target="_blank" rel="noopener">Project</a>
+                  <a href="https://arxiv.org/pdf/2412.09618" target="_blank" rel="noopener">Paper</a>
+                  <a href="https://github.com/TempleX98/EasyRef" target="_blank" rel="noopener">Code</a>
+                </div>
               </div>
-              <script type="text/javascript">
-                function agcn_start() {
-                  document.getElementById('agcn_image').style.opacity = "1";
-                }
+              <div class="paper-venue">ICML<br>2025</div>
+            </article>
 
-                function agcn_stop() {
-                  document.getElementById('agcn_image').style.opacity = "0";
-                }
-                agcn_stop()
-              </script>
-            </td>
-                  <td style="padding:10px;width:60%;vertical-align:middle">
-                <a href="https://ojs.aaai.org/index.php/AAAI/article/view/5893">
-                  <papertitle>Graph Attention Based Proposal 3D ConvNets for Action Detection</papertitle>
-                </a>
-                <br>
-                Jun Li,
-                Xianglong Liu†,
-                <strong>Zhuofan Zong</strong>,
-                Wanru Zhao,
-                Mingyuan Zhang,
-                Jingkuan Song
-                <br>
-          <em>AAAI</em>, 2020
-                <br>
-                <a href="https://ojs.aaai.org/index.php/AAAI/article/view/5893">paper</a>
-                <p></p>
-                <p>We propose graph attention-based 3D CNNs (AGCN) for video action detection, addressing the limitations of existing models that overlook intra and inter-proposal relationships. AGCN achieves the state-of-the-art performance and improves the average mAP by 3.7% on the THUMOS 2014 dataset.</p>
-              </td>
-            </tr>                  
+            <article class="paper">
+              <a class="paper-media" href="https://github.com/TempleX98/MoVA" target="_blank" rel="noopener" aria-label="Open MoVA repository">
+                <img src="images/mova.jpg" alt="" loading="lazy">
+              </a>
+              <div class="paper-content">
+                <h4><a href="https://github.com/TempleX98/MoVA" target="_blank" rel="noopener">MoVA: Adapting Mixture of Vision Experts to Multimodal Context</a></h4>
+                <p class="paper-authors">
+                  <strong>Zhuofan Zong*</strong>, Bingqi Ma*, Dazhong Shen, Guanglu Song,
+                  Hao Shao, Dongzhi Jiang, Hongsheng Li, Yu Liu
+                </p>
+                <p class="paper-summary">
+                  A coarse-to-fine routing mechanism that adaptively fuses task-specific
+                  vision experts for multimodal language models.
+                </p>
+                <div class="paper-links">
+                  <a href="https://arxiv.org/pdf/2404.13046" target="_blank" rel="noopener">Paper</a>
+                  <a href="https://github.com/TempleX98/MoVA" target="_blank" rel="noopener">Code</a>
+                </div>
+              </div>
+              <div class="paper-venue">NeurIPS<br>2024</div>
+            </article>
 
-          </tbody></table>
+            <article class="paper">
+              <a class="paper-media" href="https://hao-shao.com/projects/viscot.html" target="_blank" rel="noopener" aria-label="Open Visual CoT project page">
+                <img src="images/visualcot.png" alt="" loading="lazy">
+              </a>
+              <div class="paper-content">
+                <h4><a href="https://hao-shao.com/projects/viscot.html" target="_blank" rel="noopener">Visual CoT: Advancing Multi-Modal Language Models with Chain-of-Thought Reasoning</a></h4>
+                <p class="paper-authors">
+                  Hao Shao, Shengju Qian, Han Xiao, Guanglu Song,
+                  <strong>Zhuofan Zong</strong>, Letian Wang, Yu Liu, Hongsheng Li
+                </p>
+                <p class="paper-summary">
+                  A dataset, benchmark, and pipeline for interpretable visual
+                  chain-of-thought reasoning over complex inputs.
+                </p>
+                <div class="paper-links">
+                  <a href="https://hao-shao.com/projects/viscot.html" target="_blank" rel="noopener">Project</a>
+                  <a href="https://arxiv.org/abs/2403.16999" target="_blank" rel="noopener">Paper</a>
+                  <a href="https://github.com/deepcs233/Visual-CoT" target="_blank" rel="noopener">Code</a>
+                </div>
+              </div>
+              <div class="paper-venue">NeurIPS<br>2024<span class="spotlight">Spotlight</span></div>
+            </article>
+
+            <article class="paper">
+              <a class="paper-media" href="https://arxiv.org/abs/2406.11831" target="_blank" rel="noopener" aria-label="Open LiDiT paper">
+                <img src="images/lidit.png" alt="" loading="lazy">
+              </a>
+              <div class="paper-content">
+                <h4><a href="https://arxiv.org/abs/2406.11831" target="_blank" rel="noopener">LiDiT: Exploring the Role of Large Language Models in Prompt Encoding for Diffusion Models</a></h4>
+                <p class="paper-authors">
+                  Bingqi Ma*, <strong>Zhuofan Zong*</strong>, Guanglu Song,
+                  Hongsheng Li, Yu Liu
+                </p>
+                <p class="paper-summary">
+                  Unleashing LLM prompt encoding for text-to-image diffusion models,
+                  powering core technology in SenseMirage.
+                </p>
+                <div class="paper-links">
+                  <a href="https://arxiv.org/pdf/2406.11831" target="_blank" rel="noopener">Paper</a>
+                  <a href="https://miaohua.sensetime.com/" target="_blank" rel="noopener">Model API</a>
+                </div>
+              </div>
+              <div class="paper-venue">NeurIPS<br>2024</div>
+            </article>
+
+            <article class="paper">
+              <a class="paper-media" href="https://caraj7.github.io/" target="_blank" rel="noopener" aria-label="Open CoMat project page">
+                <img src="images/comat_after.png" alt="" loading="lazy">
+              </a>
+              <div class="paper-content">
+                <h4><a href="https://caraj7.github.io/" target="_blank" rel="noopener">CoMat: Aligning Text-to-Image Diffusion Model with Image-to-Text Concept Matching</a></h4>
+                <p class="paper-authors">
+                  Dongzhi Jiang, Guanglu Song, Xiaoshi Wu, Renrui Zhang, Dazhong Shen,
+                  <strong>Zhuofan Zong</strong>, Yu Liu, Hongsheng Li
+                </p>
+                <p class="paper-summary">
+                  A text-only fine-tuning strategy that improves concept-level alignment
+                  in text-to-image diffusion models.
+                </p>
+                <div class="paper-links">
+                  <a href="https://caraj7.github.io/" target="_blank" rel="noopener">Project</a>
+                  <a href="https://arxiv.org/abs/2404.03653" target="_blank" rel="noopener">Paper</a>
+                  <a href="https://github.com/CaraJ7/CoMat" target="_blank" rel="noopener">Code</a>
+                </div>
+              </div>
+              <div class="paper-venue">NeurIPS<br>2024</div>
+            </article>
+
+            <article class="paper">
+              <a class="paper-media" href="https://arxiv.org/abs/2305.18295" target="_blank" rel="noopener" aria-label="Open RAPHAEL paper">
+                <img src="images/raphael.png" alt="" loading="lazy">
+              </a>
+              <div class="paper-content">
+                <h4><a href="https://arxiv.org/abs/2305.18295" target="_blank" rel="noopener">RAPHAEL: Text-to-Image Generation via Large Mixture of Diffusion Paths</a></h4>
+                <p class="paper-authors">
+                  Zeyue Xue*, Guanglu Song*, Qiushan Guo, Boxiao Liu,
+                  <strong>Zhuofan Zong</strong>, Yu Liu, Ping Luo
+                </p>
+                <p class="paper-summary">
+                  Space- and time-MoE layers for highly scalable text-to-image generation,
+                  also powering SenseMirage.
+                </p>
+                <div class="paper-links">
+                  <a href="https://arxiv.org/pdf/2304.00967" target="_blank" rel="noopener">Paper</a>
+                  <a href="https://miaohua.sensetime.com/" target="_blank" rel="noopener">Model API</a>
+                </div>
+              </div>
+              <div class="paper-venue">NeurIPS<br>2023</div>
+            </article>
           </div>
         </div>
 
-				
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
-          <tr>
-            <td>
-              <heading class="section-header">Education</heading>
-            </td>
-          </tr>
-        </tbody></table>
-        <table width="100%" align="center" border="0" cellpadding="20"><tbody>
-	
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="images/cuhk.png">
-            </td>
-            <td width="75%" valign="center">
-              Ph.D. student in Multimedia Lab (MMLab) @ The Chinese University of Hong Kong
-              <br>
-              Sep. 2023 - Now
-              <br>
-              Advisor: Prof. <a href="https://www.ee.cuhk.edu.hk/~hsli/">Hongsheng Li</a>
-            </td>
-          </tr>
+        <div class="publication-group">
+          <div class="group-heading">
+            <h3>Vision Foundation Models</h3>
+            <span>2020 — 2023</span>
+          </div>
 
-	<tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="images/buaa_small.png">
-            </td>
-            <td width="75%" valign="center">
-              Master in Computer Technology @ Beihang University
-              <br>
-              Sep. 2020 - Jan. 2023
-              <br>
-              Advisor: Prof. <a href="https://scholar.google.com/citations?user=zQqJW3gAAAAJ">Biao Leng</a>
-            </td>
-          </tr>
-		
-	  <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle"><img src="images/buaa_small.png"></td>
-            <td width="75%" valign="center">
-              Bachelor in Computer Science and Engineering @ Beihang University
-              <br>
-              Sep. 2016 - Jun. 2020
-              <br>
-              Advisor: Prof. <a href="https://scholar.google.com/citations?user=zQqJW3gAAAAJ">Biao Leng</a> and Prof. <a href="https://scholar.google.com.hk/citations?user=8VY7ZDcAAAAJ">Xianglong Liu</a>
-            </td>
-          </tr>
-       
-    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
-            <tr>
-              <td>
-                <heading class="section-header">Experience</heading>
-              </td>
-            </tr>
-          </tbody></table>
-      <table width="100%" align="center" border="0" cellpadding="20"><tbody>
+          <div class="paper-list">
+            <article class="paper">
+              <a class="paper-media" href="https://github.com/Sense-X/HoP" target="_blank" rel="noopener" aria-label="Open HoP repository">
+                <img src="images/hop.jpg" alt="" loading="lazy">
+              </a>
+              <div class="paper-content">
+                <h4><a href="https://github.com/Sense-X/HoP" target="_blank" rel="noopener">Temporal Enhanced Training of Multi-view 3D Object Detector via Historical Object Prediction</a></h4>
+                <p class="paper-authors">
+                  <strong>Zhuofan Zong*</strong>, Dongzhi Jiang*, Guanglu Song,
+                  Zeyue Xue, Jingyong Su, Hongsheng Li, Yu Liu
+                </p>
+                <div class="paper-links">
+                  <a href="https://arxiv.org/pdf/2304.00967" target="_blank" rel="noopener">Paper</a>
+                  <a href="https://github.com/Sense-X/HoP" target="_blank" rel="noopener">Code</a>
+                </div>
+              </div>
+              <div class="paper-venue">ICCV<br>2023</div>
+            </article>
 
-	<tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="images/sensetime.png">
-            </td>
-            <td width="75%" valign="center">
-              SenseTime
-              <br>
-              Research Intern
-              <br>
-              Large vision fundation models
-              <br>
-              May, 2021 - Jan, 2025
-              <br>
-              Mentor: <a href="https://songguanglu.github.io/">Guanglu Song</a>
-	      <br>
-	      Base Model Department
-            </td>
-          </tr>
+            <article class="paper">
+              <a class="paper-media" href="https://github.com/Sense-X/Co-DETR" target="_blank" rel="noopener" aria-label="Open Co-DETR repository">
+                <img src="images/codetr.jpg" alt="" loading="lazy">
+              </a>
+              <div class="paper-content">
+                <h4><a href="https://github.com/Sense-X/Co-DETR" target="_blank" rel="noopener">DETRs with Collaborative Hybrid Assignments Training</a></h4>
+                <p class="paper-authors">
+                  <strong>Zhuofan Zong</strong>, Guanglu Song, Yu Liu
+                </p>
+                <div class="paper-links">
+                  <a href="https://arxiv.org/pdf/2211.12860" target="_blank" rel="noopener">Paper</a>
+                  <a href="https://github.com/Sense-X/Co-DETR" target="_blank" rel="noopener">Code</a>
+                </div>
+              </div>
+              <div class="paper-venue">ICCV<br>2023</div>
+            </article>
 
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tr>
-              <td>
-                <heading class="section-header">Academic Services</heading>
-              </td>
-            </tr>
-          </table>
-          <ul>
-            <li>
-              <p>Conference Reviewer: CVPR, ICCV, ECCV, NeurIPS, ICLR, ICML, AISTATS</p>
-            </li>
-            <li>
-               <p>Journal Reviewer: IJCV, TMLR, TCSVT, PR, IMAVIS</p>
-            </li>
-          </ul>
+            <article class="paper">
+              <a class="paper-media" href="https://github.com/Sense-X/AGVM" target="_blank" rel="noopener" aria-label="Open AGVM repository">
+                <img src="images/agvm.jpg" alt="" loading="lazy">
+              </a>
+              <div class="paper-content">
+                <h4><a href="https://github.com/Sense-X/AGVM" target="_blank" rel="noopener">Large-batch Optimization for Dense Visual Predictions: Training Faster R-CNN in 4.2 Minutes</a></h4>
+                <p class="paper-authors">
+                  Zeyue Xue, Jianming Liang, Guanglu Song,
+                  <strong>Zhuofan Zong</strong>, Liang Chen, Yu Liu, Ping Luo
+                </p>
+                <div class="paper-links">
+                  <a href="https://proceedings.neurips.cc/paper_files/paper/2022/file/76bea0a1cf7bf9b78f842009f6de15a1-Paper-Conference.pdf" target="_blank" rel="noopener">Paper</a>
+                  <a href="https://github.com/Sense-X/AGVM" target="_blank" rel="noopener">Code</a>
+                </div>
+              </div>
+              <div class="paper-venue">NeurIPS<br>2022</div>
+            </article>
 
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tr>
-              <td>
-                <heading class="section-header">Teaching</heading>
-              </td>
-            </tr>
-          </table>
-          <ul>
-            <li>
-              <p>Fundamentals of Applied Electromagnetics (ELEG3213), Fall 2024</p>
-            </li>
-            <li>
-               <p>Introduction to Digital Signal Processing (ELEG3503), Spring 2025</p>
-            </li>
-          </ul>          
+            <article class="paper">
+              <a class="paper-media" href="https://github.com/Sense-X/SiT" target="_blank" rel="noopener" aria-label="Open SiT repository">
+                <img src="images/sit.jpg" alt="" loading="lazy">
+              </a>
+              <div class="paper-content">
+                <h4><a href="https://github.com/Sense-X/SiT" target="_blank" rel="noopener">Self-slimmed Vision Transformer</a></h4>
+                <p class="paper-authors">
+                  <strong>Zhuofan Zong*</strong>, Kunchang Li*, Guanglu Song,
+                  Yali Wang, Yu Qiao, Biao Leng, Yu Liu
+                </p>
+                <div class="paper-links">
+                  <a href="https://arxiv.org/pdf/2111.12624" target="_blank" rel="noopener">Paper</a>
+                  <a href="https://github.com/Sense-X/SiT" target="_blank" rel="noopener">Code</a>
+                </div>
+              </div>
+              <div class="paper-venue">ECCV<br>2022</div>
+            </article>
 
-        </tbody></table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr>
-            <td style="padding:0px">
-              <br>
-              <p style="text-align:right;font-size:small;">
-                 Template from <a href="https://github.com/jonbarron/jonbarron_website">JonBarron</a>
+            <article class="paper">
+              <a class="paper-media" href="https://github.com/TempleX98/RCNet" target="_blank" rel="noopener" aria-label="Open RCNet repository">
+                <img src="images/rcnet.jpg" alt="" loading="lazy">
+              </a>
+              <div class="paper-content">
+                <h4><a href="https://github.com/TempleX98/RCNet" target="_blank" rel="noopener">RCNet: Reverse Feature Pyramid and Cross-scale Shift Network for Object Detection</a></h4>
+                <p class="paper-authors">
+                  <strong>Zhuofan Zong</strong>, Qianggang Cao, Biao Leng
+                </p>
+                <div class="paper-links">
+                  <a href="https://arxiv.org/pdf/2110.12130" target="_blank" rel="noopener">Paper</a>
+                  <a href="https://github.com/TempleX98/RCNet" target="_blank" rel="noopener">Code</a>
+                </div>
+              </div>
+              <div class="paper-venue">ACM MM<br>2021</div>
+            </article>
+
+            <article class="paper">
+              <a class="paper-media" href="https://ojs.aaai.org/index.php/AAAI/article/view/5893" target="_blank" rel="noopener" aria-label="Open AGCN paper">
+                <img src="images/agcn.jpg" alt="" loading="lazy">
+              </a>
+              <div class="paper-content">
+                <h4><a href="https://ojs.aaai.org/index.php/AAAI/article/view/5893" target="_blank" rel="noopener">Graph Attention Based Proposal 3D ConvNets for Action Detection</a></h4>
+                <p class="paper-authors">
+                  Jun Li, Xianglong Liu, <strong>Zhuofan Zong</strong>,
+                  Wanru Zhao, Mingyuan Zhang, Jingkuan Song
+                </p>
+                <div class="paper-links">
+                  <a href="https://ojs.aaai.org/index.php/AAAI/article/view/5893" target="_blank" rel="noopener">Paper</a>
+                </div>
+              </div>
+              <div class="paper-venue">AAAI<br>2020</div>
+            </article>
+          </div>
+        </div>
+
+        <p class="publication-note">* Equal contribution. Author lists are abbreviated only where shown.</p>
+      </div>
+    </section>
+
+    <section class="section" id="education">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Education &amp; Service</h2>
+        </div>
+
+        <div class="education-grid">
+          <div class="education-list">
+            <article class="education-item">
+              <div class="school-logo">
+                <img src="images/cuhk.png" alt="CUHK logo" loading="lazy">
+              </div>
+              <div>
+                <h3>The Chinese University of Hong Kong</h3>
+                <p class="education-degree">Ph.D. in Electronic Engineering · MMLab</p>
+                <p class="education-details">
+                  Aug 2023 — Jul 2027 (expected) · Advisors:
+                  <a href="https://www.ee.cuhk.edu.hk/~hsli/" target="_blank" rel="noopener">Prof. Hongsheng Li</a>
+                  and
+                  <a href="https://www.ee.cuhk.edu.hk/~xgwang/" target="_blank" rel="noopener">Prof. Xiaogang Wang</a>
+                </p>
+              </div>
+            </article>
+
+            <article class="education-item">
+              <div class="school-logo">
+                <img src="images/buaa_small.png" alt="Beihang University logo" loading="lazy">
+              </div>
+              <div>
+                <h3>Beihang University</h3>
+                <p class="education-degree">MPhil in Computer Technology</p>
+                <p class="education-details">Aug 2020 — Jan 2023 · Advisor: Prof. Biao Leng</p>
+              </div>
+            </article>
+
+            <article class="education-item">
+              <div class="school-logo">
+                <img src="images/buaa_small.png" alt="" loading="lazy">
+              </div>
+              <div>
+                <h3>Beihang University</h3>
+                <p class="education-degree">BEng in Computer Science and Engineering</p>
+                <p class="education-details">Aug 2016 — Jun 2020 · Advisors: Prof. Biao Leng &amp; Prof. Xianglong Liu</p>
+              </div>
+            </article>
+          </div>
+
+          <aside>
+            <div class="sidebar-block">
+              <h3>Awards</h3>
+              <ul class="compact-list">
+                <li>
+                  <strong>CUHK Postgraduate Scholarship</strong>
+                  2024–2027
+                </li>
+                <li>
+                  <strong>National Scholarship</strong>
+                  Ministry of Education of China, 2022
+                </li>
+              </ul>
+            </div>
+
+            <div class="sidebar-block">
+              <h3>Academic service</h3>
+              <p class="service-note">
+                <strong>Conference reviewer</strong><br>
+                CVPR, ICCV, ECCV, NeurIPS, ICLR, ICML, AISTATS
               </p>
-            </td>
-          </tr>
-        </tbody></table>        
-      </td>
-    </tr>
-  </table>
+              <p class="service-note">
+                <strong>Journal reviewer</strong><br>
+                IJCV, TMLR, TCSVT, PR, IMAVIS
+              </p>
+            </div>
+
+            <div class="sidebar-block">
+              <h3>Teaching</h3>
+              <ul class="compact-list">
+                <li>Fundamentals of Applied Electromagnetics · Fall 2024</li>
+                <li>Introduction to Digital Signal Processing · Spring 2025</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© 2026 Zhuofan Zong · Last updated August 2026</span>
+      <a class="back-to-top" href="#about">Back to top ↑</a>
+    </div>
+  </footer>
 
   <script>
-    function toggleSection(sectionId) {
-      const section = document.getElementById(sectionId);
-      section.classList.toggle('collapsed');
+    const sections = document.querySelectorAll("main section[id]");
+    const navLinks = document.querySelectorAll(".nav-links a");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            navLinks.forEach((link) => {
+              link.classList.toggle(
+                "active",
+                link.getAttribute("href") === `#${entry.target.id}`
+              );
+            });
+          });
+        },
+        { rootMargin: "-28% 0px -62% 0px" }
+      );
+
+      sections.forEach((section) => observer.observe(section));
     }
   </script>
 </body>
-
 </html>
